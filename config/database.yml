@@ -19,7 +19,12 @@ test:
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql2
+  enconding: utf8
+  database: wc_db_1
+  username: zrisher
+  password: imfunny12
+  host: wc-db-1.cshwlbczrber.us-east-1.rds.amazonaws.com
+  port: 3306
   pool: 5
   timeout: 5000
