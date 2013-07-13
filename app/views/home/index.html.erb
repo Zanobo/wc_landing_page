@@ -1,0 +1,26 @@
+<div class="logo"></div>
+
+<div class="content">
+  <p>WagonChain is a cutting-edge supplier discovery platform for harnessing America’s domestic capacity,
+    rolling out in Fall 2013.
+  </p>
+
+  <script>
+      //var clear = true;
+      function clear(obj)
+      {
+          //if(clear)
+          //{
+          obj.value = '';
+          //clear = false;
+          //}
+      }
+  </script>
+
+  <%= form_tag sign_up_path, method: 'post' do %>
+      <%= label_tag(:email, "Sign up for updates:") %>
+      <%= text_field_tag(:email , nil, :placeholder => 'your e-mail address', :class=> 'text-field') %>
+      <%= submit_tag("Submit") %>
+  <% end %>
+
+</div>

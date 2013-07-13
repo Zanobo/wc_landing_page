@@ -1,0 +1,164 @@
+<% if @user.errors.any? %>
+
+    <div class="content">
+      <div class="ss-top-of-page">
+        <div class="ss-form-heading"><h1 class="ss-form-title" dir="ltr"><%= @notice %></h1>
+
+          <p><%= pluralize(@user.errors.count, "error") %> prohibited us from saving:</p>
+          <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+
+        </div>
+      </div>
+
+      <p> Care to try again?</p>
+
+      <%= form_tag sign_up_path, method: 'post' do %>
+          <%= label_tag(:email, "Sign up for updates:") %>
+          <%= text_field_tag(:email, nil, :placeholder => 'your e-mail address', :class => 'text-field') %>
+          <%= submit_tag("Submit") %>
+      <% end %>
+
+    </div>
+
+<% else %>
+
+    <div itemscope itemtype="http://schema.org/CreativeWork/FormObject">
+
+      <div class="ss-form-container">
+
+        <div class="ss-top-of-page">
+
+          <div class="ss-form-heading"><h1 class="ss-form-title" dir="ltr"><%= @notice %></h1>
+
+            <p>We respect your privacy and will not contact you too frequently.</p>
+
+            <p>If you have time, please let us know more about yourself:</p>
+
+          </div>
+
+        </div>
+
+        <div class="ss-form">
+
+          <form action="submit_details" method="POST" id="ss-form" target="_self" onsubmit="">
+
+            <input type="hidden" name="email" value="<%= params[:email] %>">
+
+            <ol style="padding-left: 0">
+
+              <div class="ss-form-question errorbox-good">
+                <div dir="ltr" class="ss-item  ss-checkbox">
+
+                  <div class="ss-form-entry"><label class="ss-q-item-label" for="entry_70899701">
+                    <div class="ss-q-title">How would you use WagonChain?</div>
+                  </label>
+
+                    <ul class="ss-choices">
+                      <li class="ss-choice-item"><label><span
+                      class="ss-choice-item-control goog-inline-block"><input type="checkbox"
+                                                                              name="use_cases[]"
+                                                                              value="Source locally made (US or regional) goods for purchase"
+                                                                              id="group_2077175407_1"
+                                                                              class="ss-q-checkbox"></span>
+                        <span class="ss-choice-label">Source locally made (US or regional) goods for purchase</span>
+                      </label></li>
+                      <li class="ss-choice-item"><label><span
+                      class="ss-choice-item-control goog-inline-block"><input type="checkbox"
+                                                                              name="use_cases[]"
+                                                                              value="List goods substantially produced in the USA for sale"
+                                                                              id="group_2077175407_2"
+                                                                              class="ss-q-checkbox"></span>
+                        <span class="ss-choice-label">List goods substantially produced in the USA for sale</span>
+                      </label></li>
+                      <li class="ss-choice-item"><label><span
+                      class="ss-choice-item-control goog-inline-block"><input type="checkbox"
+                                                                              name="use_cases[]"
+                                                                              value="Research the state of the Made in the USA market"
+                                                                              id="group_2077175407_3"
+                                                                              class="ss-q-checkbox"></span>
+                        <span class="ss-choice-label">Research the state of the Made in the USA market</span>
+                      </label></li>
+                      <li class="ss-choice-item"><label><span
+                      class="ss-choice-item-control goog-inline-block"><input type="checkbox"
+                                                                              name="use_cases[]"
+                                                                              value="other_option"
+                                                                              id="group_2077175407_4"
+                                                                              class="ss-q-checkbox ss-q-other-toggle"></span>
+                        Other:</label>
+                                        <span class="ss-q-other-container goog-inline-block"><input type="text"
+                                                                                                    name="other_option_response"
+                                                                                                    value=""
+                                                                                                    class="ss-q-other"
+                                                                                                    id="entry_2077175407_other_option_response"
+                                                                                                    dir="auto"
+                                                                                                    aria-label="Other"></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="ss-form-question errorbox-good">
+                <div dir="ltr" class="ss-item  ss-text">
+                  <div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1965227486">
+                    <div class="ss-q-title">What company do you work for?
+                    </div>
+                    <div class="ss-q-help ss-secondary-text" dir="ltr">
+                    </div>
+                  </label>
+                    <input type="text" name="company_name" value="" class="ss-q-short"
+                           id="entry_1965227486" dir="auto">
+
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="ss-form-question errorbox-good">
+                <div dir="ltr" class="ss-item  ss-text">
+                  <div class="ss-form-entry"><label class="ss-q-item-label" for="entry_1965227486">
+                    <div class="ss-q-title">How much annual demand or supply would your company provide to
+                      this market if it could be easily matched?
+                    </div>
+                    <div class="ss-q-help ss-secondary-text" dir="ltr">Please tell us the total cost of
+                      goods, in USD.
+                    </div>
+                  </label>
+                    <input type="text" name="participant_size" value="" class="ss-q-short"
+                           id="entry_1965227486" dir="auto">
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="ss-form-question errorbox-good">
+                <div dir="ltr" class="ss-item  ss-text">
+                  <div class="ss-form-entry"><label class="ss-q-item-label" for="entry_252294696">
+                    <div class="ss-q-title">How did you hear about us?
+                    </div>
+                    <div class="ss-q-help ss-secondary-text" dir="ltr"></div>
+                  </label>
+                    <input type="text" name="referral_mechanism" value="" class="ss-q-short"
+                           id="entry_252294696" dir="auto">
+
+                  </div>
+                </div>
+              </div>
+              <div class="ss-item ss-navigate">
+                <div class="ss-form-entry" id="navigation-buttons" dir="ltr" style="display: inline-block">
+                  <input type="submit" name="submit" value="Submit" id="ss-submit">
+                </div>
+              </div>
+
+            </ol>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+<% end %>

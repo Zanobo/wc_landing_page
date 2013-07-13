@@ -1,0 +1,15 @@
+
+<div class="content">
+  <p><%= @notice %></p>
+
+  <% if @user.errors.any? %>
+            <p><%= pluralize(@user.errors.count, "error") %> prohibited us from saving:</p>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+      <%= link_to "Try again", sign_up_path, params.merge({:email=> params[:email]})  %>
+      <% else %>
+
+  <%= link_to "Head back home.", root_path %>
+      <% end %>
+</div>
